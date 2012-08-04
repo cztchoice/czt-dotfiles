@@ -205,6 +205,8 @@
     " space / shift-space scroll in normal mode
     noremap <s-space> <C-b>
     noremap <space> <C-f>
+    nnoremap / /\v
+    cnoremap %s/ %s/\v
 
 " }"}
 
