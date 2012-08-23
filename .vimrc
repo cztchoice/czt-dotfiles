@@ -16,7 +16,7 @@
     " My Bundles here:
     "
     " original repos on github
-    Bundle 'tpope/vim-fugitive'
+    "Bundle 'tpope/vim-fugitive'
     Bundle 'Lokaltog/vim-easymotion'
     Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
     Bundle 'tpope/vim-rails.git'
@@ -27,7 +27,9 @@
     "Bundle 'git://git.wincent.com/command-t.git'
 
     Bundle 'kien/ctrlp.vim'
-    Bundle 'fholgado/minibufexpl.vim'
+    Bundle 'kana/vim-smartinput'
+    Bundle 'carlobaldassi/ConqueTerm'
+    "Bundle 'fholgado/minibufexpl.vim'
     " ...
     Bundle 'majutsushi/tagbar'
     nmap <leader>tb :TagbarToggle<CR>
@@ -36,14 +38,20 @@
     "let g:Powerline_symbols = 'fancy'
     let g:Powerline_cache_enabled = 1
 
+    Bundle 'klen/python-mode'
+    Bundle 'ervandew/supertab'
     "Bundle 'c9s/bufexplorer'
+    Bundle 'mileszs/ack.vim'
+    Bundle 'tpope/vim-surround'
+    Bundle 'tpope/vim-repeat'
+    Bundle 'tpope/vim-markdown'
 
-    "Bundle 'tpope/vim-fugitive'
-    "nmap <leader>g :Ggrep
+    Bundle 'tpope/vim-fugitive'
+    nmap <leader>g :Ggrep
     " ,f for global git serach for word under the cursor (with highlight)
-    "nmap <leader>f :let @/="\\<<C-R><C-W>\\>"<CR>:set hls<CR>:silent Ggrep -w "<C-R><C-W>"<CR>:ccl<CR>:cw<CR><CR>
+    nmap <leader>f :let @/="\\<<C-R><C-W>\\>"<CR>:set hls<CR>:silent Ggrep -w "<C-R><C-W>"<CR>:ccl<CR>:cw<CR><CR>
     " same in visual mode
-    ":vmap <leader>f y:let @/=escape(@", '\\[]$^*.')<CR>:set hls<CR>:silent Ggrep -F "<C-R>=escape(@", '\\"#')<CR>"<CR>:ccl<CR>:cw<CR><CR>
+    :vmap <leader>f y:let @/=escape(@", '\\[]$^*.')<CR>:set hls<CR>:silent Ggrep -F "<C-R>=escape(@", '\\"#')<CR>"<CR>:ccl<CR>:cw<CR><CR>
 
     Bundle 'scrooloose/syntastic'
     let g:syntastic_enable_signs=1
@@ -52,8 +60,6 @@
     Bundle 'msanders/snipmate.vim'
 
     Bundle 'scrooloose/nerdcommenter'
-
-    Bundle 'tpope/vim-markdown'
 
     Bundle 'scrooloose/nerdtree'
     nmap <C-u> :NERDTreeToggle<CR>
@@ -123,6 +129,9 @@
     set iskeyword+=_,$,@,%,# " none of these are word dividers 
     set mouse=a " use mouse everywhere
     set noerrorbells " don't make noise
+    set vb
+    set t_vb=
+    autocmd GUIEnter * set visualbell t_vb=
     set whichwrap=b,s,h,l,<,>,~,[,] " everything wraps
     "             | | | | | | | | |
     "             | | | | | | | | +-- "]" Insert and Replace
@@ -198,6 +207,9 @@
     set tabstop=4 " real tabs should be 8, and they will show with 
                    " set list on
     set wrap
+    let g:ackprg="ack-grep -H --nocolor --nogroup --column"
+    let g:tagbar_autofocus = 1
+    let g:tagbar_width = 30
 " }"}
 
 " Mappings {"{
@@ -205,9 +217,14 @@
     " space / shift-space scroll in normal mode
     noremap <s-space> <C-b>
     noremap <space> <C-f>
+    noremap <c-h> <C-w>h
+    noremap <c-j> <C-w>j
+    noremap <c-k> <C-w>k
+    noremap <c-l> <C-w>l
+    noremap <c-q> <C-w>q
+    map <leader>pb :CtrlPBuffer<Enter>
     nnoremap / /\v
     cnoremap %s/ %s/\v
-
 " }"}
 
 " GUI Settings {"{
@@ -215,7 +232,7 @@ if has("gui_running")
     " Basics {
         colorscheme evening " my color scheme (only works in GUI)
         set columns=120 " perfect size for me
-        set guifont=LiberationMono-Regular-Powerline\ 12 " My favorite font
+        set guifont=Monospace:h12 " My favorite font
         set guioptions=ce
         "              ||
         "              |+-- use simple dialogs rather than pop-ups
@@ -229,9 +246,11 @@ if has("gui_running")
         source $VIMRUNTIME/menu.vim  
         " 解决gVim中提示框乱码  
         language message zh_CN.UTF-8  
+        set visualbell
+        set t_vb=
     " }
     " Pyflakes {
-        highlight SpellBad term=underline gui=undercurl guisp=Orange
+        "highlight SpellBad term=underline gui=undercurl guisp=Orange
     " }
 
 endif
