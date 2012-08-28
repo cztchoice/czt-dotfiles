@@ -39,7 +39,7 @@
     let g:Powerline_cache_enabled = 1
 
     Bundle 'klen/python-mode'
-    Bundle 'ervandew/supertab'
+    "Bundle 'ervandew/supertab'
     "Bundle 'c9s/bufexplorer'
     Bundle 'mileszs/ack.vim'
     Bundle 'tpope/vim-surround'
@@ -58,7 +58,8 @@
     Bundle 'Shougo/neocomplcache'
     Bundle 'kakkyz81/evervim'
 
-    Bundle 'msanders/snipmate.vim'
+    "Bundle 'msanders/snipmate.vim'
+    Bundle 'Shougo/neocomplcache-snippets-complete'
 
     Bundle 'scrooloose/nerdcommenter'
     "Bundle 'vim-scripts/fcitx.vim'
@@ -195,19 +196,20 @@
 " Text Formatting/Layout {"{
     "set completeopt= " don't use a pop up menu for completions
     set expandtab " no real tabs please!
+    set smarttab 
     set formatoptions=rq " Automatically insert comment leader on return, 
-                          " and let gq format comments
+                            " and let gq format comments
     set ignorecase " case insensitive by default
     set infercase " case inferred by default
     set nowrap " do not wrap line
     set shiftround " when at 3 spaces, and I hit > ... go to 4, not 5
     set smartcase " if there are caps, go case-sensitive
     set shiftwidth=4 " auto-indent amount when using cindent, 
-                      " >>, << and stuff like that
+                        " >>, << and stuff like that
     set softtabstop=4 " when hitting tab or backspace, how many spaces 
-                       "should a tab be (see expandtab)
+                        "should a tab be (see expandtab)
     set tabstop=4 " real tabs should be 8, and they will show with 
-                   " set list on
+                    " set list on
     set wrap
     let g:ackprg="ack-grep -H --nocolor --nogroup --column"
     let g:tagbar_autofocus = 1
@@ -260,7 +262,8 @@
     inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
     " <C-h>, <BS>: close popup and delete backword char.
     inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
-    inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
+    "Comment the line behind because of the imcompat with vim-smartinput plugin
+    "inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
     inoremap <expr><C-y>  neocomplcache#close_popup()
     inoremap <expr><C-e>  neocomplcache#cancel_popup()
 
@@ -304,6 +307,7 @@
     noremap <c-q> <C-w>q
     map <leader>pb :CtrlPBuffer<Enter>
     map <leader>pl :PyLintAuto<Enter>
+    map <Leader>ps :ConqueTermSplit bash<Enter>
     nnoremap / /\v
     cnoremap %s/ %s/\v
 " }"}
