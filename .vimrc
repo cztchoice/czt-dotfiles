@@ -317,7 +317,11 @@ if has("gui_running")
     " Basics {
         colorscheme evening " my color scheme (only works in GUI)
         set columns=120 " perfect size for me
-        set guifont=Monospace\ 12 " My favorite font
+        if has('win32')
+            set guifont=Consolas:h12 " My favorite font
+        else
+            set guifont=Monospace\ 12
+        endif
         set guioptions=ce
         "              ||
         "              |+-- use simple dialogs rather than pop-ups
