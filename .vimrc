@@ -201,7 +201,7 @@
                             " and let gq format comments
     set ignorecase " case insensitive by default
     set infercase " case inferred by default
-    set nowrap " do not wrap line
+    "set nowrap " do not wrap line
     set shiftround " when at 3 spaces, and I hit > ... go to 4, not 5
     set smartcase " if there are caps, go case-sensitive
     set shiftwidth=4 " auto-indent amount when using cindent, 
