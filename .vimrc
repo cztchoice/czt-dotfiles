@@ -57,6 +57,7 @@
     let g:syntastic_auto_loc_list=1
     Bundle 'Shougo/neocomplcache'
     Bundle 'kakkyz81/evervim'
+    Bundle 'kshenoy/vim-signature'
 
     "Bundle 'msanders/snipmate.vim'
     Bundle 'Shougo/neocomplcache-snippets-complete'
@@ -66,6 +67,10 @@
 
     Bundle 'scrooloose/nerdtree'
     nmap <C-u> :NERDTreeToggle<CR>
+
+    Bundle 'mattn/webapi-vim'
+    Bundle 'mattn/googletasks-vim'
+    Bundle 'cztchoice/matchit'
 
     filetype plugin indent on     " required!
     "
