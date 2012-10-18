@@ -56,7 +56,7 @@
     let g:syntastic_enable_signs=1
     let g:syntastic_auto_loc_list=1
     Bundle 'Shougo/neocomplcache'
-    Bundle 'kakkyz81/evervim'
+    "Bundle 'kakkyz81/evervim'
     Bundle 'kshenoy/vim-signature'
 
     "Bundle 'msanders/snipmate.vim'
@@ -66,10 +66,11 @@
     "Bundle 'vim-scripts/fcitx.vim'
 
     Bundle 'scrooloose/nerdtree'
+    Bundle 'vim-scripts/sessionman.vim'
     nmap <C-u> :NERDTreeToggle<CR>
 
-    Bundle 'mattn/webapi-vim'
-    Bundle 'mattn/googletasks-vim'
+    "Bundle 'mattn/webapi-vim'
+    "Bundle 'mattn/googletasks-vim'
     Bundle 'cztchoice/matchit'
 
     filetype plugin indent on     " required!
@@ -157,6 +158,7 @@
                     \*.jpg,*.gif,*.png
     set wildignore+=.svn,CVS,.git,.hg,*.a,*.class,*.mo,*.la,*.so,*.swp,*.xpm,*.gif,.DS_Store,*.aux,*.out,*.toc
     set wildmode=list:longest " turn on wild mode huge list
+    let NERDTreeIgnore=['\.pyc$[[file]]', '\~$[[file]]']
 " }"}
 
 " Vim UI {"{
@@ -221,6 +223,7 @@
     let g:tagbar_autofocus = 1
     let g:tagbar_width = 30
     let g:pymode_folding = 0
+    let g:pymode_lint = 0
     let NERDTreeWinSize = 30
 " }"}
 
