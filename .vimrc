@@ -176,6 +176,7 @@
     set matchtime=5 " how many tenths of a second to blink 
                      " matching brackets for
     set nohlsearch " do not highlight searched for phrases
+    set gdefault  " make the search with global default, If you want to replace only one, just add g
     set nostartofline " leave my cursor where it was
     set novisualbell " don't blink
     set number " turn on line numbers
@@ -315,7 +316,12 @@
     map <Leader>ps :ConqueTermSplit bash<Enter>
     nnoremap / /\v
     cnoremap %s/ %s/\v
+    nnoremap <tab> %
+    vnoremap <tab> %
 " }"}
+" AutoCommands {
+    au FocusLost * :wa
+" }
 
 " GUI Settings {"{
 if has("gui_running")
