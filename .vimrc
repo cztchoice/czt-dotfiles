@@ -72,6 +72,8 @@
     "Bundle 'mattn/webapi-vim'
     "Bundle 'mattn/googletasks-vim'
     Bundle 'cztchoice/matchit'
+    Bundle 'vim-scripts/YankRing.vim'
+    Bundle 'sjl/gundo.vim'
 
     filetype plugin indent on     " required!
     "
@@ -178,6 +180,7 @@
     set matchtime=5 " how many tenths of a second to blink 
                      " matching brackets for
     set nohlsearch " do not highlight searched for phrases
+    set gdefault  " make the search with global default, If you want to replace only one, just add g
     set nostartofline " leave my cursor where it was
     set novisualbell " don't blink
     set number " turn on line numbers
@@ -318,7 +321,22 @@
     map <Leader>ps :ConqueTermSplit bash<Enter>
     nnoremap / /\v
     cnoremap %s/ %s/\v
+    nnoremap <tab> %
+    vnoremap <tab> %
+    "Select the text you paste right before
+    nnoremap <leader>v V`]
+    "Open a right split window and switch to it
+    nnoremap <leader>w <C-w>v<C-w>l
+    "YankRing Mappings
+    nnoremap <silent> <F3> :YRShow<cr>
+    inoremap <silent> <F3> <ESC>:YRShow<cr>
+
+    "Gundo Mappings
+    nnoremap <F5> :GundoToggle<CR>
 " }"}
+" AutoCommands {
+    au FocusLost * :wa
+" }
 
 " GUI Settings {"{
 if has("gui_running")
