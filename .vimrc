@@ -321,6 +321,8 @@
     cnoremap %s/ %s/\v
     nnoremap <tab> %
     vnoremap <tab> %
+    "inoremap <C-P> <Home>
+    "inoremap <C-E> <End>
 " }"}
 " AutoCommands {
     au FocusLost * :wa
