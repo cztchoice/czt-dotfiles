@@ -333,6 +333,8 @@
 
     "Gundo Mappings
     nnoremap <F5> :GundoToggle<CR>
+    "inoremap <C-P> <Home>
+    "inoremap <C-E> <End>
 " }"}
 " AutoCommands {
     au FocusLost * :wa
