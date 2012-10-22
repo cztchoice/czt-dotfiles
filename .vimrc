@@ -27,7 +27,8 @@
     "Bundle 'git://git.wincent.com/command-t.git'
 
     Bundle 'kien/ctrlp.vim'
-    Bundle 'kana/vim-smartinput'
+    "Bundle 'kana/vim-smartinput'
+    Bundle 'Townk/vim-autoclose'
     Bundle 'carlobaldassi/ConqueTerm'
     "Bundle 'fholgado/minibufexpl.vim'
     " ...
@@ -321,8 +322,11 @@
     cnoremap %s/ %s/\v
     nnoremap <tab> %
     vnoremap <tab> %
+    "press <F2> before you paste! You will find it most useful!!
+    set pastetoggle=<F2>
     "inoremap <C-P> <Home>
     "inoremap <C-E> <End>
+    "map <C-Q> <C-W>q
 " }"}
 " AutoCommands {
     au FocusLost * :wa
