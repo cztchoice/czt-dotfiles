@@ -73,6 +73,8 @@
     "Bundle 'mattn/webapi-vim'
     "Bundle 'mattn/googletasks-vim'
     Bundle 'cztchoice/matchit'
+    Bundle 'vim-scripts/YankRing.vim'
+    Bundle 'sjl/gundo.vim'
 
     filetype plugin indent on     " required!
     "
@@ -324,6 +326,16 @@
     vnoremap <tab> %
     "press <F2> before you paste! You will find it most useful!!
     set pastetoggle=<F2>
+    "Select the text you paste right before
+    nnoremap <leader>v V`]
+    "Open a right split window and switch to it
+    nnoremap <leader>w <C-w>v<C-w>l
+    "YankRing Mappings
+    nnoremap <silent> <F3> :YRShow<cr>
+    inoremap <silent> <F3> <ESC>:YRShow<cr>
+
+    "Gundo Mappings
+    nnoremap <F5> :GundoToggle<CR>
     "inoremap <C-P> <Home>
     "inoremap <C-E> <End>
     "map <C-Q> <C-W>q
