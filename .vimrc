@@ -27,8 +27,8 @@
     "Bundle 'git://git.wincent.com/command-t.git'
 
     Bundle 'kien/ctrlp.vim'
-    "Bundle 'kana/vim-smartinput'
-    Bundle 'Townk/vim-autoclose'
+    Bundle 'kana/vim-smartinput'
+    "Bundle 'Townk/vim-autoclose'
     Bundle 'carlobaldassi/ConqueTerm'
     "Bundle 'fholgado/minibufexpl.vim'
     " ...
@@ -45,6 +45,7 @@
     Bundle 'mileszs/ack.vim'
     Bundle 'tpope/vim-surround'
     Bundle 'tpope/vim-repeat'
+    Bundle 'tpope/vim-unimpaired'
     Bundle 'tpope/vim-markdown'
     Bundle 'tpope/vim-fugitive'
     nmap <leader>g :Ggrep
@@ -61,18 +62,19 @@
     Bundle 'kshenoy/vim-signature'
 
     "Bundle 'msanders/snipmate.vim'
-    Bundle 'Shougo/neocomplcache-snippets-complete'
+    Bundle 'Shougo/neosnippet'
 
     Bundle 'scrooloose/nerdcommenter'
     "Bundle 'vim-scripts/fcitx.vim'
 
     Bundle 'scrooloose/nerdtree'
     Bundle 'vim-scripts/sessionman.vim'
+    Bundle 'vim-scripts/a.vim'
     nmap <C-u> :NERDTreeToggle<CR>
 
     "Bundle 'mattn/webapi-vim'
     "Bundle 'mattn/googletasks-vim'
-    Bundle 'cztchoice/matchit'
+    Bundle 'vim-scripts/matchit.zip'
     Bundle 'vim-scripts/YankRing.vim'
     Bundle 'sjl/gundo.vim'
 
@@ -135,10 +137,10 @@
     " set directory=~/.vim/tmp " directory to place swap files in
     set encoding=utf-8
     set fileencodings=utf-8,cp936 " support all three, in this order
-    set fileformats=dos,unix,mac " support all three, in this order
+    set fileformats=unix,dos,mac " support all three, in this order
     set hidden " you can change buffers without saving
     " (XXX: #VIM/tpope warns the line below could break things)
-    set iskeyword+=_,$,@,%,# " none of these are word dividers 
+    "set iskeyword+=_,$,@,%,# " none of these are word dividers 
     set mouse=a " use mouse everywhere
     set noerrorbells " don't make noise
     set vb
@@ -258,6 +260,9 @@
     endif
     let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
 
+    " Not jump to the match brackets
+    let loaded_matchparen = 1
+
     " Plugin key-mappings.
     imap <C-k>     <Plug>(neocomplcache_snippets_expand)
     smap <C-k>     <Plug>(neocomplcache_snippets_expand)
@@ -265,7 +270,7 @@
     inoremap <expr><C-l>     neocomplcache#complete_common_string()
 
     " SuperTab like snippets behavior.
-    "imap <expr><TAB> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"
+    imap <expr><TAB> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"
 
     " Recommended key-mappings.
     " <CR>: close popup and save indent.
@@ -316,14 +321,17 @@
     noremap <c-j> <C-w>j
     noremap <c-k> <C-w>k
     noremap <c-l> <C-w>l
-    noremap <c-q> <C-w>q
+
+    "Some exit shorcuts
+    map <leader>qq  :q<Enter>
+    map <leader>qa  :qa<Enter>
+    map <leader>x   :x<Enter>
+    map <leader>qa  :xa<Enter>
     map <leader>pb :CtrlPBuffer<Enter>
     map <leader>pl :PyLintAuto<Enter>
     map <Leader>ps :ConqueTermSplit bash<Enter>
     nnoremap / /\v
     cnoremap %s/ %s/\v
-    nnoremap <tab> %
-    vnoremap <tab> %
     "press <F2> before you paste! You will find it most useful!!
     set pastetoggle=<F2>
     "Select the text you paste right before
