@@ -350,6 +350,13 @@
 " }"}
 " AutoCommands {
     au FocusLost * :wa
+    "Goto your last edit line when open a file
+    if has("autocmd")
+        autocmd BufReadPost *
+                    \ if line("'\"") > 0 && line("'\"") <= line("$") |
+                    \   exe "normal g`\"" |
+                    \ endif
+    endif
 " }
 
 " GUI Settings {"{
@@ -358,9 +365,9 @@ if has("gui_running")
         colorscheme evening " my color scheme (only works in GUI)
         set columns=120 " perfect size for me
         if has('win32')
-            set guifont=Consolas:h12 " My favorite font
+            set guifont=Consolas:h16 " My favorite font
         else
-            set guifont=Monospace\ 12
+            set guifont=Monospace\ 16
         endif
         set guioptions=ce
         "              ||
