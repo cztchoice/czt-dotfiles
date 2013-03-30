@@ -29,7 +29,7 @@
     Bundle 'kien/ctrlp.vim'
     Bundle 'kana/vim-smartinput'
     "Bundle 'Townk/vim-autoclose'
-    Bundle 'carlobaldassi/ConqueTerm'
+    "Bundle 'carlobaldassi/ConqueTerm'
     "Bundle 'fholgado/minibufexpl.vim'
     " ...
     Bundle 'majutsushi/tagbar'
@@ -98,12 +98,13 @@
     set nocompatible " explicitly get out of vi-compatible mode
     set noexrc " don't use local version of .(g)vimrc, .exrc
     set background=dark " we plan to use a dark background
-    set cpoptions=aABceFsmq
-    "             |||||||||
+    "set cpoptions=aABceFsmq
+    set cpoptions=aABceFsq
+    "             ||||||||
     "             ||||||||+-- When joining lines, leave the cursor 
     "             |||||||      between joined lines
-    "             |||||||+-- When a new match is created (showmatch) 
-    "             ||||||      pause for .5
+    "             |||||||
+    "             ||||||
     "             ||||||+-- Set buffer options when entering the 
     "             |||||      buffer
     "             |||||+-- :write command updates current file name
@@ -269,12 +270,13 @@
     inoremap <expr><C-g>     neocomplcache#undo_completion()
     inoremap <expr><C-l>     neocomplcache#complete_common_string()
 
-    " SuperTab like snippets behavior.
+    "" SuperTab like snippets behavior.
     imap <expr><TAB> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"
 
-    " Recommended key-mappings.
-    " <CR>: close popup and save indent.
-    inoremap <expr><CR>  neocomplcache#smart_close_popup() . "\<CR>"
+    "" Recommended key-mappings.
+    "" <CR>: close popup and save indent.
+    "Attentions:This make smartinput {} not work with <Enter>
+    "inoremap <expr><CR>  neocomplcache#smart_close_popup() . "\<CR>"
     " <TAB>: completion.
     inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
     " <C-h>, <BS>: close popup and delete backword char.
@@ -285,7 +287,7 @@
     inoremap <expr><C-e>  neocomplcache#cancel_popup()
 
     " AutoComplPop like behavior.
-    "let g:neocomplcache_enable_auto_select = 1
+    let g:neocomplcache_enable_auto_select = 1
 
     " Shell like behavior(not recommended).
     "set completeopt+=longest
@@ -327,6 +329,7 @@
     map <leader>qa  :qa<Enter>
     map <leader>x   :x<Enter>
     map <leader>qa  :xa<Enter>
+    map <leader>pp :CtrlP<Enter>
     map <leader>pb :CtrlPBuffer<Enter>
     map <leader>pl :PyLintAuto<Enter>
     map <Leader>ps :ConqueTermSplit bash<Enter>
