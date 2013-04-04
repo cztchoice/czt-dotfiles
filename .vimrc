@@ -17,9 +17,9 @@
     "
     " original repos on github
     "Bundle 'tpope/vim-fugitive'
-    Bundle 'Lokaltog/vim-easymotion'
-    Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-    Bundle 'tpope/vim-rails.git'
+    "Bundle 'Lokaltog/vim-easymotion'
+    "Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+    "Bundle 'tpope/vim-rails.git'
     " vim-scripts repos
     "Bundle 'L9'
     "Bundle 'FuzzyFinder'
@@ -39,13 +39,13 @@
     "let g:Powerline_symbols = 'fancy'
     let g:Powerline_cache_enabled = 1
 
-    Bundle 'klen/python-mode'
+    "Bundle 'klen/python-mode'
     "Bundle 'ervandew/supertab'
     "Bundle 'c9s/bufexplorer'
-    Bundle 'mileszs/ack.vim'
+    "Bundle 'mileszs/ack.vim'
     Bundle 'tpope/vim-surround'
     Bundle 'tpope/vim-repeat'
-    Bundle 'tpope/vim-unimpaired'
+    "Bundle 'tpope/vim-unimpaired'
     Bundle 'tpope/vim-markdown'
     Bundle 'tpope/vim-fugitive'
     nmap <leader>g :Ggrep
@@ -58,17 +58,16 @@
     let g:syntastic_enable_signs=1
     let g:syntastic_auto_loc_list=1
     Bundle 'Shougo/neocomplcache'
-    "Bundle 'kakkyz81/evervim'
+    Bundle 'Shougo/neosnippet'
     Bundle 'kshenoy/vim-signature'
 
     "Bundle 'msanders/snipmate.vim'
-    Bundle 'Shougo/neosnippet'
 
     Bundle 'scrooloose/nerdcommenter'
     "Bundle 'vim-scripts/fcitx.vim'
 
     Bundle 'scrooloose/nerdtree'
-    Bundle 'vim-scripts/sessionman.vim'
+    "Bundle 'vim-scripts/sessionman.vim'
     Bundle 'vim-scripts/a.vim'
     nmap <C-u> :NERDTreeToggle<CR>
 
@@ -76,7 +75,7 @@
     "Bundle 'mattn/googletasks-vim'
     Bundle 'vim-scripts/matchit.zip'
     Bundle 'vim-scripts/YankRing.vim'
-    Bundle 'sjl/gundo.vim'
+    "Bundle 'sjl/gundo.vim'
 
     filetype plugin indent on     " required!
     "
@@ -287,7 +286,7 @@
     inoremap <expr><C-e>  neocomplcache#cancel_popup()
 
     " AutoComplPop like behavior.
-    let g:neocomplcache_enable_auto_select = 1
+    let g:neocomplcache_enable_auto_select = 0
 
     " Shell like behavior(not recommended).
     "set completeopt+=longest
