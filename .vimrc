@@ -75,7 +75,7 @@
     "Bundle 'mattn/googletasks-vim'
     Bundle 'vim-scripts/matchit.zip'
     Bundle 'vim-scripts/YankRing.vim'
-    "Bundle 'sjl/gundo.vim'
+    Bundle 'sjl/gundo.vim'
 
     filetype plugin indent on     " required!
     "
@@ -196,7 +196,7 @@
     set showcmd " show the command being typed
     set showmatch " show matching brackets
     set sidescrolloff=10 " Keep 5 lines at the size
-    set statusline=%<%F\ [%{&fenc}][%{&ff}]%=%l,%v\ %P
+    "set statusline=%<%F\ [%{&fenc}][%{&ff}]%=%l,%v\ %P
     "                |     |         |       |  |   |
     "                |     |         |       |  |   + percentage
     "                |     |         |       |  + current column
@@ -331,7 +331,7 @@
     map <leader>pp :CtrlP<Enter>
     map <leader>pb :CtrlPBuffer<Enter>
     map <leader>pl :PyLintAuto<Enter>
-    map <Leader>ps :ConqueTermSplit bash<Enter>
+    "map <Leader>ps :ConqueTermSplit bash<Enter>
     nnoremap / /\v
     cnoremap %s/ %s/\v
     "press <F2> before you paste! You will find it most useful!!
