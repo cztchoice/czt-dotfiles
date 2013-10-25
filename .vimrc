@@ -169,6 +169,7 @@
                     \*.jpg,*.gif,*.png
     set wildignore+=.svn,CVS,.git,.hg,*.a,*.class,*.mo,*.la,*.so,*.swp,*.xpm,*.gif,.DS_Store,*.aux,*.out,*.toc
     set wildmode=list:longest " turn on wild mode huge list
+    set tags=./tags,tags;
     let NERDTreeIgnore=['\.pyc$[[file]]', '\~$[[file]]']
 " }"}
 
