@@ -32,8 +32,10 @@
     " ...
     Bundle 'xolox/vim-misc'
     Bundle 'xolox/vim-easytags'
+    Bundle 'xolox/vim-session'
     Bundle 'majutsushi/tagbar'
     nmap <leader>tb :TagbarToggle<CR>
+    Bundle 'chazy/cscope_maps'
 
     "Bundle 'Lokaltog/powerline'
     "let g:Powerline_symbols = 'fancy'
@@ -44,7 +46,8 @@
     "Bundle 'klen/python-mode'
     "Bundle 'ervandew/supertab'
     "Bundle 'c9s/bufexplorer'
-    "Bundle 'mileszs/ack.vim'
+    Bundle 'mileszs/ack.vim'
+    Bundle 'rking/ag.vim'
     Bundle 'tpope/vim-surround'
     Bundle 'tpope/vim-repeat'
     "Bundle 'tpope/vim-unimpaired'
@@ -71,16 +74,18 @@
     "Bundle 'vim-scripts/fcitx.vim'
 
     Bundle 'scrooloose/nerdtree'
-    Bundle 'vim-scripts/sessionman.vim'
+    "Bundle 'vim-scripts/sessionman.vim'
     "the next line is session auto save 
     set viminfo='100,<500,s10,h,!
     Bundle 'vim-scripts/a.vim'
     nmap <C-u> :NERDTreeToggle<CR>
+    let NERDTreeDirArrows = 0
+
 
     "Bundle 'mattn/webapi-vim'
     "Bundle 'mattn/googletasks-vim'
     Bundle 'vim-scripts/matchit.zip'
-    "Bundle 'vim-scripts/YankRing.vim'
+    Bundle 'vim-scripts/YankRing.vim'
     Bundle 'sjl/gundo.vim'
 
     filetype plugin indent on     " required!
@@ -170,7 +175,6 @@
     set wildignore+=.svn,CVS,.git,.hg,*.a,*.class,*.mo,*.la,*.so,*.swp,*.xpm,*.gif,.DS_Store,*.aux,*.out,*.toc
     set wildmode=list:longest " turn on wild mode huge list
     set tags=./tags,tags;
-    let NERDTreeIgnore=['\.pyc$[[file]]', '\~$[[file]]']
 " }"}
 
 " Vim UI {"{
@@ -237,7 +241,27 @@
     let g:pymode_folding = 0
     let g:pymode_lint = 0
     let NERDTreeWinSize = 30
+    let NERDTreeIgnore = ['\.pyc$', '\.o$', '\.d$']
+    let g:session_autoload = 'no'
 " }"}
+" Cscope Settings {
+    if has('cscope')
+    set cscopetag cscopeverbose
+
+    if has('quickfix')
+        set cscopequickfix=s-,c-,d-,i-,t-,e-
+    endif
+
+    cnoreabbrev csa cs add
+    cnoreabbrev csf cs find
+    cnoreabbrev csk cs kill
+    cnoreabbrev csr cs reset
+    cnoreabbrev css cs show
+    cnoreabbrev csh cs help
+
+    command -nargs=0 Cscope cs add $VIMSRC/src/cscope.out $VIMSRC/src
+    endif
+" }
 
 " Neocomplcache Settings {
     "Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
@@ -380,6 +404,11 @@
     map <leader>pp :CtrlP<Enter>
     map <leader>pb :CtrlPBuffer<Enter>
     map <leader>pl :PyLintAuto<Enter>
+    let g:ctrlp_custom_ignore = {
+      \ 'dir': '\v[\/]\.(git|hg|svn)$',
+      \ 'file': '\v\.(exe|so|dll|o|html)$',
+      \ 'link': '',
+    \ }
     "map <Leader>ps :ConqueTermSplit bash<Enter>
     nnoremap / /\v
     cnoremap %s/ %s/\v
