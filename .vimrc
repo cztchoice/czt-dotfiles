@@ -3,6 +3,7 @@
     filetype off                   " required!
 
     set rtp+=~/.vim/bundle/Vundle.vim
+    set runtimepath+=~/.dotfiles
     call vundle#begin()
 
     " let Vundle manage Vundle
@@ -57,8 +58,10 @@
     let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
     " Track the engine.
     Plugin 'SirVer/ultisnips'
-
     Plugin 'honza/vim-snippets'
+    let g:UltiSnipsSnippetsDir='~/.dotfiles/mysnippets'
+    let g:UltiSnipsSnippetDirectories=['UltiSnips', 'mysnippets']
+
     Plugin 'kshenoy/vim-signature'
 
     Plugin 'scrooloose/nerdcommenter'
