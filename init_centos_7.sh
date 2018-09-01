@@ -22,6 +22,10 @@ sudo yum install python36-setuptools -y
 sudo easy_install-3.6 pip
 sudo /usr/local/bin/pip3 install neovim
 
+mkdir -p ~/.config/nvim/tmp/undo
+mkdir -p ~/.config/nvim/tmp/backup
+mkdir -p ~/.config/nvim/tmp/swap
+
 curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
 https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
