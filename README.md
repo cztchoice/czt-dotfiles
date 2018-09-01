@@ -2,6 +2,7 @@
 
 This is my configuration files.
 
-This configuration file include vim, zsh, vim-UltiSnips.
+This configuration file include nvim, zsh, vim-plug
 
-For Vundle installion, please visit https://github.com/gmarik/vundle
+For vim-plug install, ref: https://github.com/junegunn/vim-plug
+
