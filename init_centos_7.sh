@@ -2,7 +2,7 @@
 # init a work machine
 
 # install all
-# sh -c "$(curl  -fsSL https://raw.githubusercontent.com/cztchoice/czt-dotfiles/master/init_centos_7.sh)"
+# sh -c "$(curl  -fsSL https://gitee.com/cztchoice/czt-dotfiles/raw/master/init_centos_7.sh)"
 set -ex
 
 sudo yum install -y zsh
@@ -12,7 +12,7 @@ sudo yum --enablerepo=epel -y install fuse-sshfs
 user="$(whoami)"
 sudo usermod -a -G fuse "$user"
 
-curl -fLo ~/bin/nvim --create-dirs https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
+curl -fLo ~/bin/nvim --create-dirs https://gitee.com/cztchoice/czt-dotfiles/raw/master/nvim.appimage
 chmod u+x ~/bin/nvim
 
 sudo yum install the_silver_searcher -y
