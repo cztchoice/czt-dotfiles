@@ -119,6 +119,8 @@ else
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
 let g:deoplete#enable_at_startup = 1
+" worked in centos 7
+let g:python3_host_prog = '/usr/bin/python36'
 
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
