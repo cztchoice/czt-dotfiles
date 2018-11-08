@@ -15,7 +15,7 @@ user="$(whoami)"
 curl -fLo ~/bin/nvim --create-dirs https://github.com/neovim/neovim/releases/download/v0.3.1/nvim.appimage
 chmod u+x ~/bin/nvim
 
-curl -fLo ~/.config/nvim/init.vim https://raw.githubusercontent.com/cztchoice/czt-dotfiles/master/.vimrc
+curl -fLo ~/.config/nvim/init.vim --create-dirs https://raw.githubusercontent.com/cztchoice/czt-dotfiles/master/.vimrc
 
 sudo yum install the_silver_searcher -y
 sudo yum install python36-setuptools -y
