@@ -18,8 +18,8 @@ chmod u+x ~/bin/nvim
 curl -fLo ~/.config/nvim/init.vim --create-dirs https://raw.githubusercontent.com/cztchoice/czt-dotfiles/master/.vimrc
 
 sudo yum install the_silver_searcher -y
-sudo yum install python36-setuptools -y
-sudo easy_install-3.6 pip
+sudo yum install python36 -y
+sudo python3.6 -m ensurepip
 sudo /usr/local/bin/pip3 install neovim
 
 mkdir -p ~/.config/nvim/tmp/undo
